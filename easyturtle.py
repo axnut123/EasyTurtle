@@ -3,7 +3,7 @@
 #see LICENSE.txt for more info.
 import tkinter as tk
 import sys
-#Code start
+
 class TiDraw:
     def __init__(self, width=400, height=400, bg="white"):
         self.width = width
@@ -13,7 +13,7 @@ class TiDraw:
         self.pen_style = (1, "solid")
 
         self.root = tk.Tk()
-        self.root.title("EasyTurtleGraphics")
+        self.root.title("ESTT")
 
         self.canvas = tk.Canvas(self.root, width=self.width, height=self.height, bg=self.bg)
         self.canvas.pack()
@@ -22,7 +22,7 @@ class TiDraw:
         """设置绘图颜色，参数为RGB值 (0-255)"""
         self.color = f"#{r:02x}{g:02x}{b:02x}"
 
-    def set_window(self, width, height, title="tiDraw Graphics Library"):
+    def set_window(self, width, height, title="ESTT"):
         """设置窗口宽度、高度和标题"""
         self.width = width
         self.height = height
@@ -43,30 +43,30 @@ class TiDraw:
             dash = (5, 5)
         elif self.pen_style[1] == "dotted":
             dash = (2, 2)
-        self.canvas.create_line(x1, self.height - y1, x2, self.height - y2, fill=self.color, width=self.pen_style[0], dash=dash)
+        self.canvas.create_line(x1, y1, x2, y2, fill=self.color, width=self.pen_style[0], dash=dash)
 
     def draw_rect(self, x, y, width, height):
         """绘制矩形，左上角为(x, y)，宽度为width，高度为height"""
-        self.canvas.create_rectangle(x, self.height - y, x + width, self.height - (y + height), outline=self.color, width=self.pen_style[0])
+        self.canvas.create_rectangle(x, y, x + width, y + height, outline=self.color, width=self.pen_style[0])
 
     def fill_rect(self, x, y, width, height):
         """填充矩形，左上角为(x, y)，宽度为width，高度为height"""
-        self.canvas.create_rectangle(x, self.height - y, x + width, self.height - (y + height), fill=self.color, outline=self.color)
+        self.canvas.create_rectangle(x, y, x + width, y + height, fill=self.color, outline=self.color)
 
     def draw_circle(self, x, y, radius):
         """绘制圆形，圆心为(x, y)，半径为radius"""
-        self.canvas.create_oval(x - radius, self.height - (y - radius), x + radius, self.height - (y + radius), outline=self.color, width=self.pen_style[0])
+        self.canvas.create_oval(x - radius, y - radius, x + radius, y + radius, outline=self.color, width=self.pen_style[0])
 
     def fill_circle(self, x, y, radius):
         """填充圆形，圆心为(x, y)，半径为radius"""
-        self.canvas.create_oval(x - radius, self.height - (y - radius), x + radius, self.height - (y + radius), fill=self.color, outline=self.color)
+        self.canvas.create_oval(x - radius, y - radius, x + radius, y + radius, fill=self.color, outline=self.color)
 
     def draw_poly(self, points):
         """绘制多边形，points为点的列表 [(x1, y1), (x2, y2), ...]"""
         transformed_points = []
         for x, y in points:
             transformed_points.append(x)
-            transformed_points.append(self.height - y)
+            transformed_points.append(y)
         self.canvas.create_polygon(transformed_points, outline=self.color, fill="", width=self.pen_style[0])
 
     def fill_poly(self, points):
@@ -74,16 +74,16 @@ class TiDraw:
         transformed_points = []
         for x, y in points:
             transformed_points.append(x)
-            transformed_points.append(self.height - y)
+            transformed_points.append(y)
         self.canvas.create_polygon(transformed_points, fill=self.color, outline=self.color)
 
     def plot_xy(self, x, y):
         """绘制单个像素点(x, y)"""
-        self.canvas.create_line(x, self.height - y, x + 1, self.height - y, fill=self.color)
+        self.canvas.create_line(x, y, x + 1 , y, fill=self.color)
 
     def draw_text(self, x, y, text):
         """在指定位置(x, y)显示文本"""
-        self.canvas.create_text(x, self.height - y, text=text, fill=self.color)
+        self.canvas.create_text(x, y, text=text, fill=self.color)
 
     def clear(self):
         """清空画布"""
@@ -99,7 +99,7 @@ __app = TiDraw()
 def set_color(r, g, b):
     __app.set_color(r, g, b)
 
-def set_window(width, height, title="tiDraw Graphics Library"):
+def set_window(width, height, title="ESTT"):
     __app.set_window(width, height, title)
 
 def set_pen(thickness=1, style="solid"):
@@ -164,6 +164,6 @@ if __name__ == "__main__":
         fill_poly([(200, 300), (250, 350), (150, 350)])
 
         plot_xy(100, 100)
-        draw_text(150, 50, "Hello, TiDraw!")
+        draw_text(150, 50, "Hello, EasyTurtle!")
 
         run()
