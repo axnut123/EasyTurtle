@@ -1,0 +1,25 @@
+English(US):
+draw_rect(x,y,width,height)
+fill_rect(x,y,width,height)
+draw_circle(x,y,radius)
+fill_circle(x,y,radius)
+set_color(red,green,blue)
+set_window(width,height)
+draw_line(x1,y1,x2,y2)
+draw_text(x,,y,ExpOrString)
+clear()
+set_pen(thick,medium,thin)
+or just use pensize()
+============================================================
+Simplefied Chinese:
+draw_rect(x,y,宽度,高度)
+fill_rect(x,y,宽度,高度)
+draw_circle(x,y,半径)
+fill_circle(x,y,半径)
+set_color(红，绿，蓝)
+set_window(宽,高)
+draw_line(x1,y1,x2,y2)
+draw_text(x,,y,值或字符串)
+clear()
+set_pen(粗,中,细)
+或者直接用pensize()也可以。
